@@ -39,21 +39,31 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+			$('#image').hover(function(){
+				$('#image').css('background-image','url('"+i.src+"')');
+				$('#image').append('i.alt');
+
+			});
+
+		});
+	</script> -->
+
+
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("img")
-        .mouseover(function() {
-        	document.getElementById('image').style.backgroundImage="url('"+$(this).attr("src")+"')";
-			document.getElementById('image').innerHTML= $(this).attr("alt");
-        })
-        .mouseout(function() {
-            var src = $(this).attr("src").replace("over.gif", ".gif");
-            $(this).attr("src", src);
+			$("img").mouseover(function() {
+					$('#image').css('background-image',"url('"+$(this).attr("src")+"')");
+					$('#image').html($(this).attr("alt"));
+        });
+        $("img").mouseout(function() {
+					$('#image').css('background-image',"url()");
+					$('#image').html("Hover over an image below.");
         });
 
 		});
 	</script>
-
 
 	<!-- <script type="text/javascript">
 	function upDate(i){
