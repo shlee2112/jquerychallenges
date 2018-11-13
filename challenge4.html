@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Challenge 4</title>
+    <style>
+
+    .errormsg {
+    	color:red;
+    	/*font: Use a Google font*/
+    	display:none; }
+    </style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- <script>
+		function checkForm(){
+			// Write a function that displays the appropriate error message(s) if a field is left blank.  Make sure the form action is not performed if either field is blank.
+
+			var x = document.getElementById("fullname").value;
+			var y = document.getElementById("streetaddr").value;
+
+			if (x =='' && y ==''){
+				window.alert("Please enter your full name and your street address!");
+				document.getElementById('nameerrormsg').style.display = "block";
+				document.getElementById('addrerrormsg').style.display = "block";
+				return false
+			}
+
+
+			if (x == ''){
+				window.alert("Please enter your full name!");
+				document.getElementById('nameerrormsg').style.display = "block";
+				return false
+			}
+
+			if (y == ''){
+				window.alert("Please enter your street address!");
+				document.getElementById('addrerrormsg').style.display = "block";
+				return false
+
+			}
+
+
+		}
+		</script> -->
+
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button').click(function(){
+				if($('#fullname').val() == '' && $('#streetaddr').val() == ''){
+					alert('Please enter your full name and your street address!');
+					$('#nameerrormsg').css('display','block');
+					$('#addrerrormsg').css('display','block');
+					return false;
+				}
+
+				if($('#fullname').val() == '') {
+					alert('Please enter your full name!');
+					$('#nameerrormsg').css('display','block');
+					return false;
+				}
+
+				if($('#streetaddr').val() == '') {
+					alert('Please enter your street address!');
+					$('#addrerrormsg').css('display','block');
+					return false;
+				}
+
+			});
+		});
+		</script>
+
+</head>
+<body>
+    <h1>Challenge 4</h1>
+	<form action="challenge5.html" onsubmit="return checkForm();">
+        <fieldset>
+        <legend>Personal details</legend>
+          <label for="fullname">Full name: </label>
+            <input type="text" name="fullname" id="fullname"><br/>
+
+            <p class="errormsg" id="nameerrormsg">Please enter your name above!</p>
+
+          <label for ="streetaddr"></label>
+            Street Address:
+            <input type="text" name="streetaddr" id="streetaddr">
+
+            <p class="errormsg" id="addrerrormsg">Please enter your street address!</p>
+        </fieldset>
+        <input id='button' type="submit" value="Submit it!">
+    </form>
+</body>
+</html>
